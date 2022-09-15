@@ -1,0 +1,40 @@
+{
+
+    "manifest_version": 3,
+    "name": "Pinterest repost pins",
+    "version": "1.0",
+
+    "description": "",
+
+    "icons": {
+        "48": "icons/icon.png"
+    },
+
+    "permissions": [
+        "storage",
+        "unlimitedStorage",
+        "scripting",
+        "tabs"
+    ],
+
+    "host_permissions": [
+        "*://*.pinterest.com/*"
+    ],
+
+    "background": {
+        "service_worker": "background.js"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["*://*.pinterest.com/*"],
+            "js": ["jquery.min.js", "main.js"]
+        }
+    ],
+
+    "action": {
+        "default_title": "Pinterest repost pins",
+        "default_icon": "icons/icon.png",
+        "default_popup": "popup/content.html"
+    }
+}
